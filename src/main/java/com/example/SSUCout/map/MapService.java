@@ -15,7 +15,7 @@ public class MapService {
     public List<MapView> viewFloor(
             int a, int b
     ) {
-        return clubRepository.findAllByClubLocBetween(a,b);
+        return clubRepository.findAllByClubLocBetweenOrderByClubLoc(a,b);
     }
     public Club findById(Integer clubId) {
         return clubRepository.findById(clubId).get();
