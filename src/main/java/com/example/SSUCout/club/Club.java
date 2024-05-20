@@ -1,7 +1,10 @@
 package com.example.SSUCout.club;
 
+import com.example.SSUCout.review.Review;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Data
 @Getter
@@ -26,6 +29,14 @@ public class Club {
 
     private String clubInfo;
 
-//    @OneToMany(mappedBy = "Club", cascade = CascadeType.REMOVE)
-//    private List<Review> reviewList;
+    @OneToMany(mappedBy = "club", cascade = CascadeType.REMOVE)
+    private List<Review> reviewList;
+    public static Club toEntity(ClubDTO dto){
+        return Club.builder()
+                .clubId(dto.getClubId())
+                .clubName(dto.getClubName())
+                .clubCategory(dto.getClubCategory())
+                .totalStar(dto.getTotalStar())
+                .build();
+    }
 }

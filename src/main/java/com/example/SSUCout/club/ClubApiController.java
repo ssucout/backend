@@ -12,9 +12,9 @@ public class ClubApiController {
     private final ClubService clubService;
 
     @GetMapping("/list")
-    public List<ClubView> view(
+    public List<ClubDTO> view(
     ){
-        return clubService.all();
+        return clubService.listAll();
     }
 
 }
