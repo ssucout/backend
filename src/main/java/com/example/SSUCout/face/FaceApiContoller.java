@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/club")
+@RequestMapping("/face")
 public class FaceApiContoller {
     private final FaceService faceService;
-    @PostMapping("/flask")
+    @PostMapping("/upload")
     public String sendToFlask(
             @RequestBody
             RequestSendToFlaskDto dto

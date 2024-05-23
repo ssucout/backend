@@ -30,7 +30,9 @@ public class ClubDTO {
     }
 
     public static List<ClubDTO> toDTOs(List<Club> clubs) {
-        return clubs.stream().map(ClubDTO::toDTO).collect(Collectors.toList());
+        return clubs.stream()
+                .map(ClubDTO::toDTO)
+                .collect(Collectors.toList());
     }
 
     private static double calculateAverageStar(List<Review> reviews) {

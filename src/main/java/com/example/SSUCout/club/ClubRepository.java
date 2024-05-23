@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ClubRepository extends JpaRepository<Club, Integer> {
 
-    List<ClubDTO> findAllByOrderByClubCategory();
+    List<Club> findAllByOrderByClubCategoryAscClubNameAsc();
     List<MapView> findAllByClubLocBetweenOrderByClubLoc(int a, int b);
 
 }
