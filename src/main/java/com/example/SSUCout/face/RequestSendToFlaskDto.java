@@ -1,12 +1,15 @@
 package com.example.SSUCout.face;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
+@Setter
+@AllArgsConstructor
+@Builder
 @RequiredArgsConstructor
 public class RequestSendToFlaskDto {
-    private final String nickname;
-
-    private final String fileId;
+    private String fieldID;
+    private MultipartFile multipartFile;
 }

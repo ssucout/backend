@@ -13,7 +13,7 @@ public class ClubService {
     private final ClubRepository clubRepository;
     @Transactional
     public List<ClubDTO> listAll() {
-        List<Club> clubs = clubRepository.findAll();
+        List<Club> clubs = clubRepository.findAllByOrderByClubCategoryAscClubNameAsc();
         return ClubDTO.toDTOs(clubs);
     }
 

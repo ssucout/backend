@@ -20,6 +20,7 @@ public class FaceService {
     public String sendToFlask(
             RequestSendToFlaskDto dto
     ) throws JsonProcessingException {
+
         RestTemplate restTemplate = new RestTemplate();
 
         //헤더를 JSON으로 설정함
@@ -33,7 +34,7 @@ public class FaceService {
         HttpEntity<String> entity = new HttpEntity<String>(param, headers);
 
         //실제 Flask 서버랑 연결하기 위한 URL
-        String url = "http://127.0.0.1:8080/receive_string";
+        String url = "http://127.0.0.1:8080/recieve_image";
 
         //Flask 서버로 데이터를 전송하고 받은 응답 값을 return
         return restTemplate.postForObject(url, entity, String.class);
