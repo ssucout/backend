@@ -29,7 +29,7 @@ public class Club {
 
     private String clubInfo;
 
-    @OneToMany(mappedBy = "club", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "club", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Review> reviewList;
     public static Club toEntity(ClubDTO dto){
         return Club.builder()

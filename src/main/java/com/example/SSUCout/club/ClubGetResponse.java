@@ -1,18 +1,26 @@
 package com.example.SSUCout.club;
 
+import com.example.SSUCout.review.Review;
 import lombok.Builder;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Builder
 public record ClubGetResponse(
         String clubName,
-        String reviewName
+        List<Review> reviewName
 ) {
 
-    static ClubGetResponse of(Club club)
+    public static ClubGetResponse of(Club club)
     {
         return ClubGetResponse.builder()
                 .clubName(club.getClubName())
-                .reviewName(club.getReviewList().get(0).getReviewContent())
+                .reviewName(club.getReviewList())
                 .build();
+    }
+
+    public static List<ClubGetResponse> toDtoList(List<Club> clubs){
+        return clubs.stream().map(ClubGetResponse::of).collect(Collectors.toList());
     }
 }
