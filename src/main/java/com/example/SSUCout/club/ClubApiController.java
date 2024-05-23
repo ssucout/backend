@@ -14,8 +14,7 @@ public class ClubApiController {
     @GetMapping("/list")
     public List<ClubDTO> view(
     ){
-        return clubService.listAll();
-    }
+        return clubService.listAll();}
 
 
 }
