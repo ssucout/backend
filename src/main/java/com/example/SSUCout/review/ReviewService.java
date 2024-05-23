@@ -1,23 +1,27 @@
 package com.example.SSUCout.review;
 
 import com.example.SSUCout.club.Club;
+import com.example.SSUCout.club.ClubRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
 public class ReviewService {
 
     private final ReviewRepository reviewRepository;
+    private final ClubRepository clubRepository;
 
-//    public List<Review> getList(Model model, int clubId){
-//        return reviewRepository.findAll(Club, clubId);
+    public Optional<Club> getList(Integer clubid){
+        return  clubRepository.findById(clubid);
+    }
+
+//    public Review createReview(Review review){
+//
 //    }
-
+/*
     public Review create(Club club, String content, Double userStar){
         Review review = new Review();
         review.setClub(club);
@@ -26,5 +30,5 @@ public class ReviewService {
         review.setWriteDate(LocalDateTime.now());
 
         return this.reviewRepository.save(new Review());
-    }
+    }*/
 }
