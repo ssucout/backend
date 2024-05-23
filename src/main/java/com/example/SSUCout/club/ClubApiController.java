@@ -17,4 +17,5 @@ public class ClubApiController {
         return clubService.listAll();
     }
 
+
 }

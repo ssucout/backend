@@ -2,7 +2,6 @@ package com.example.SSUCout.club;
 
 
 import com.example.SSUCout.review.Review;
-import jakarta.transaction.Transactional;
 import lombok.*;
 
 import java.util.List;
