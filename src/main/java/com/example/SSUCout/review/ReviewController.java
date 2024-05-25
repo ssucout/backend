@@ -35,14 +35,4 @@ public class ReviewController {
 //                reviewService.createReview(clubId, )
 //        );
 //    }
-
-/*
-    @PostMapping("/review/{clubId}/write")
-    public String createReview(Model model, @PathVariable("clubId") int cId,
-                               @RequestParam String content,
-                               @RequestParam Double userStar){
-        Club club = this.clubService.getClub(cId);
-        this.reviewService.create(club, content, userStar);
-        return String.format("redirect:/review/%d", cId);
-    }*/
 }
