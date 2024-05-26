@@ -3,17 +3,22 @@ package com.example.SSUCout.review;
 import com.example.SSUCout.club.Club;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+@Entity
+@Data
 @Getter
 @Setter
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ToString
 public class Review {
 	@Id
 	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer reviewId;       // 리뷰글 번호
 
 	@Column(columnDefinition = "TEXT")
@@ -28,7 +33,7 @@ public class Review {
 	@Column
 	private LocalDateTime writeDate; // 리뷰 작성 날짜, 시간
 
-	@ManyToOne(fetch = FetchType.LAZY)  // review:club = many:one
+	@ManyToOne(fetch = FetchType.EAGER)  // review:club = many:one
 	@JoinColumn(name = "club_id")
 	@JsonIgnore
 	private Club club;
