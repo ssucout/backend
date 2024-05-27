@@ -21,10 +21,10 @@ public class ClubDTO {
 
     public static ClubDTO toDTO(Club club) {
         ClubDTO dto = new ClubDTO();
-        dto.setClubId(club.getId());
+        dto.setClubId(club.getClubId());
         dto.setClubName(club.getClubName());
         dto.setClubCategory(club.getClubCategory());
-        dto.setTotalStar(calculateAverageStar(club.getReviewList()));
+        dto.setTotalStar(club.getTotalStar());
         return dto;
     }
 
@@ -34,11 +34,11 @@ public class ClubDTO {
                 .collect(Collectors.toList());
     }
 
-    private static double calculateAverageStar(List<Review> reviews) {
-        if (reviews.isEmpty()) {
-            return 0.0;
-        }
-        double sum = reviews.stream().mapToDouble(Review::getUserStar).sum();
-        return sum / reviews.size();
-    }
+//    private static double calculateAverageStar(List<Review> reviews) {
+//        if (reviews.isEmpty()) {
+//            return 0.0;
+//        }
+//        double sum = reviews.stream().mapToDouble(Review::getUserStar).sum();
+//        return sum / reviews.size();
+//    }
 }
