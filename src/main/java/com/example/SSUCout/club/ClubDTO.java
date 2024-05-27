@@ -21,7 +21,7 @@ public class ClubDTO {
 
     public static ClubDTO toDTO(Club club) {
         ClubDTO dto = new ClubDTO();
-        dto.setClubId(club.getClubId());
+        dto.setClubId(club.getId());
         dto.setClubName(club.getClubName());
         dto.setClubCategory(club.getClubCategory());
         dto.setTotalStar(calculateAverageStar(club.getReviewList()));

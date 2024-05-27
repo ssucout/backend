@@ -17,7 +17,7 @@ import java.util.List;
 public class Club {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer clubId;
+    private Integer id;
 
     private String clubName;
 
@@ -33,7 +33,7 @@ public class Club {
     private List<Review> reviewList;
     public static Club toEntity(ClubDTO dto){
         return Club.builder()
-                .clubId(dto.getClubId())
+                .id(dto.getClubId())
                 .clubName(dto.getClubName())
                 .clubCategory(dto.getClubCategory())
                 .totalStar(dto.getTotalStar())
