@@ -1,7 +1,5 @@
 package com.example.SSUCout.club;
 
-
-import com.example.SSUCout.review.Review;
 import lombok.*;
 
 import java.util.List;
@@ -33,12 +31,4 @@ public class ClubDTO {
                 .map(ClubDTO::toDTO)
                 .collect(Collectors.toList());
     }
-
-//    private static double calculateAverageStar(List<Review> reviews) {
-//        if (reviews.isEmpty()) {
-//            return 0.0;
-//        }
-//        double sum = reviews.stream().mapToDouble(Review::getUserStar).sum();
-//        return sum / reviews.size();
-//    }
 }
