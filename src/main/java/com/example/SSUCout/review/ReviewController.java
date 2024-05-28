@@ -34,9 +34,12 @@ public class ReviewController {
     }
 
     @PostMapping("/review/{club_id}/write")
-    public ResponseEntity<ReviewResponseDTO.CreateReviewDTO> writeReview(@PathVariable("club_id") String clubId,
-                                                                         @RequestBody ReviewPostRequest request) throws Exception {
-
+    public ResponseEntity<ReviewResponseDTO.CreateReviewDTO> writeReview(
+            @PathVariable("club_id")
+            String clubId,
+            @RequestBody
+            ReviewPostRequest request
+    ) throws Exception {
         try {
             Review review = reviewService.createReview(Integer.parseInt(clubId), request);
             return ResponseEntity.ok(ReviewConverter.toCreateReviewResultDTO(review));
