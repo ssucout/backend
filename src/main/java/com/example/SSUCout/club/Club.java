@@ -3,6 +3,7 @@ package com.example.SSUCout.club;
 import com.example.SSUCout.review.Review;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class Club {
     private String clubName;
 
     private String clubCategory;        // 분과
-
+    @ColumnDefault("0.0")
     private Double totalStar;           // 평균 별점
 
     private Integer clubLoc;
@@ -31,12 +32,4 @@ public class Club {
 
     @OneToMany(mappedBy = "club", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Review> reviewList;
-    public static Club toEntity(ClubDTO dto){
-        return Club.builder()
-                .clubId(dto.getClubId())
-                .clubName(dto.getClubName())
-                .clubCategory(dto.getClubCategory())
-                .totalStar(dto.getTotalStar())
-                .build();
-    }
 }
