@@ -1,6 +1,7 @@
 package com.example.SSUCout.face;
 
 import com.example.SSUCout.club.Club;
+import com.example.SSUCout.club.ClubFaceDTO;
 import com.example.SSUCout.club.ClubRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -60,5 +61,11 @@ public class FaceService {
         ObjectMapper mapper = new ObjectMapper();
         FaceResponse faceResponse = mapper.readValue(response.getBody(), FaceResponse.class);
         return faceResponse.getPredicted_class();
+    }
+
+    public ClubFaceDTO analyzeImage2(Integer clubId){
+        Club club = clubRepository.findByClubId(clubId);
+        return ClubFaceDTO.toFaceDto(club);
+
     }
 }

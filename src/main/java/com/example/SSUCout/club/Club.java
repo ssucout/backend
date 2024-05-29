@@ -32,4 +32,5 @@ public class Club {
 
     @OneToMany(mappedBy = "club", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Review> reviewList;
+
 }

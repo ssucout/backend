@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ClubRepository extends JpaRepository<Club, Integer> {
+    Club findByClubId(Integer clubId);
 
     List<Club> findAllByOrderByClubCategoryAscClubNameAsc();
     List<MapView> findAllByClubLocBetweenOrderByClubLoc(int a, int b);
